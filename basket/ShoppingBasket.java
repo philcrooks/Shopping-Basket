@@ -76,9 +76,9 @@ public class ShoppingBasket {
     if (li.isEmpty()) lineItems.remove(itemIndex);
   }
 
-  public void clearItem(int itemIndex) {
-    lineItems.remove(itemIndex);
-  }
+  // public void clearItem(int itemIndex) {
+  //   lineItems.remove(itemIndex);
+  // }
 
   public void clearBasket() {
     if (lineItems != null) lineItems.clear();
@@ -101,5 +101,9 @@ public class ShoppingBasket {
   public double getPrice() {
     totalize();
     return totalPrice;
+  }
+
+  public int size() {
+    return lineItems.size();
   }
 }

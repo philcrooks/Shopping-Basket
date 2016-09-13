@@ -88,4 +88,47 @@ public class TestShoppingBasket {
     basket.addCustomer(customer);
     assertEquals(26.46, basket.getPrice(), 0.001);
   }
+
+  @Test
+  public void testGetIndex() {
+    basket.addItem(product2);
+    basket.addItem(product1);
+    assertEquals(0, basket.getIndex(product2));
+    assertEquals(1, basket.getIndex(product1));
+  }
+
+  @Test
+  public void testRemoveByIndex() {
+    basket.addItem(product2);
+    basket.addItem(product1);
+    basket.removeItem(basket.getIndex(product2));
+    assertEquals(5.0, basket.getPrice(), 0.001);
+    assertEquals(1, basket.size());
+  }
+
+  @Test
+  public void testAddByIndex() {
+    basket.addItem(product2);
+    basket.addItem(product1);
+    basket.addItem(basket.getIndex(product2));
+    assertEquals(31.5, basket.getPrice(), 0.001);
+    assertEquals(2, basket.size());
+  }
+
+  @Test
+  public void testSetNumberOfItems() {
+    basket.addItem(product1);
+    basket.setNumberOfItems(basket.getIndex(product1), 10);
+    assertEquals(22.5, basket.getPrice(), 0.001);
+    assertEquals(1, basket.size());
+  }
+
+  @Test
+  public void testClearBasket() {
+    basket.addItem(product1);
+    basket.setNumberOfItems(basket.getIndex(product1), 10);
+    basket.clearBasket();
+    assertEquals(0.0, basket.getPrice(), 0.001);
+    assertEquals(0, basket.size());
+  }
 }
