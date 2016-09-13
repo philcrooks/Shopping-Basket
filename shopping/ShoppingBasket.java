@@ -1,24 +1,38 @@
 package shopping;
 
 import java.util.*;
+import behaviours.*;
 
 public class ShoppingBasket {
   ArrayList<LineItem> lineItems;
-  double totalCost;
+  double totalPrice;
+  BasketDiscount discount;
+  Customer customer;
 
-  public ShoppingBasket() {
+  public ShoppingBasket(BasketDiscount discount) {
     lineItems = new ArrayList<LineItem>();
-    totalCost = 0.0;
+    totalPrice = 0.0;
+    customer = null;
   }
 
-  public void add(Product product) {
+  public ShoppingBasket(Customer customer, BasketDiscount discount) {
+    lineItems = new ArrayList<LineItem>();
+    totalPrice = 0.0;
+    this.customer = customer.duplicate();
+  }
+
+  public void addCustomer(Customer customer) {
+    if (customer == null) this.customer = customer.duplicate();
+  }
+
+  public void addItem(Sellable item) {
     // Check to see if this product already exists in the basket.
     // If it does add one more to the line item
     // If not, create a new line item.
 
   }
 
-  public void remove (Product product) {
+  public void removeItem (Sellable item) {
 
   }
 
@@ -26,11 +40,17 @@ public class ShoppingBasket {
     if (lineItems != null) lineItems.clear();
   }
 
-  public void totalize() {
+  private void totalize() {
     double total = 0.0;
     for (LineItem item : lineItems) {
       total += item.getPrice();
     }
-    totalCost = total;
+    totalPrice = discount.applyDiscount(total);
+    if (customer != null) totalPrice = customer.applyDiscount(totalPrice);
+  }
+
+  public double getPrice() {
+    totalize();
+    return totalPrice;
   }
 }

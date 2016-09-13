@@ -14,12 +14,12 @@ public class TestCustomer {
 
   @Test
   public void testDiscount_NoCard(){
-    assertEquals(0.0, customer.getDiscount(), 0.001);
+    assertEquals(0.0, customer.applyDiscount(100.0), 0.001);
   }
 
   @Test
   public void testDiscount_WithCard(){
     customer.addCard(card);
-    assertEquals(3.0, customer.getDiscount(), 0.001);
+    assertEquals(3.0, customer.applyDiscount(100.0), 0.001);
   }
 }

@@ -2,6 +2,6 @@ package behaviours;
 
 public interface Discountable {
 
-  abstract double getDiscount();
+  abstract double applyDiscount(double preDiscountAmount);
 
 }

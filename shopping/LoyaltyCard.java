@@ -20,8 +20,8 @@ public class LoyaltyCard implements Discountable {
     return new LoyaltyCard(this);
   }
 
-  public double getDiscount () {
-    return discount;
+  public double applyDiscount (double amount) {
+    return amount - ((amount * discount) / 100);
   }
   
 }
