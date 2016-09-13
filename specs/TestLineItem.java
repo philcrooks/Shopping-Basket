@@ -1,6 +1,6 @@
 import static org.junit.Assert.*;
 import org.junit.*;
-import shopping.*;
+import basket.*;
 
 public class TestLineItem {
   ProductOffer offer;
@@ -64,11 +64,11 @@ public class TestLineItem {
     assertEquals(7, lineItem.getPrice(), 0.001);
   }
 
-  @Test
-  public void testRemoveAllItems() {
-    lineItem = new LineItem(productWithoutOffer);
-    lineItem.setNumberOfItems(3);
-    lineItem.removeAllItems();
-    assertEquals(0, lineItem.getPrice(), 0.001);
-  }
+  // @Test
+  // public void testRemoveAllItems() {
+  //   lineItem = new LineItem(productWithoutOffer);
+  //   lineItem.setNumberOfItems(3);
+  //   lineItem.removeAllItems();
+  //   assertEquals(0, lineItem.getPrice(), 0.001);
+  // }
 }
