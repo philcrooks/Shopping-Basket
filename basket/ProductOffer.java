@@ -27,7 +27,7 @@ public class ProductOffer {
     int discountApplyNumber = (noItems/this.noItems) * this.noItems;
     int discountDoesNotApplyNumber = noItems - discountApplyNumber;
     double cost = (discountApplyNumber * priceEach);
-    cost -= (cost * discount) / 100;
+    cost -= (cost * discount) / 100.0;
     cost += discountDoesNotApplyNumber * priceEach;
     return cost;
   }

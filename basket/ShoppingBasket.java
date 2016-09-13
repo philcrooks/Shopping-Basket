@@ -6,23 +6,36 @@ import behaviours.*;
 public class ShoppingBasket {
   ArrayList<LineItem> lineItems;
   double totalPrice;
-  BasketDiscount discount;
+  Discountable discount;
   Customer customer;
 
-  public ShoppingBasket(BasketDiscount discount) {
+  public ShoppingBasket(Discountable discount) {
+    this.discount = discount.duplicate();
     lineItems = new ArrayList<LineItem>();
     totalPrice = 0.0;
     customer = null;
   }
 
-  public ShoppingBasket(Customer customer, BasketDiscount discount) {
+  public ShoppingBasket(Customer customer, Discountable discount) {
+    this.customer = customer.duplicate();
+    this.discount = discount.duplicate();
     lineItems = new ArrayList<LineItem>();
     totalPrice = 0.0;
-    this.customer = customer.duplicate();
   }
 
   public void addCustomer(Customer customer) {
-    if (customer == null) this.customer = customer.duplicate();
+    if (this.customer == null) {
+      this.customer = customer.duplicate();
+    }
+  }
+
+  public int getIndex(Sellable item) {
+    LineItem li;
+    for (int i = 0; i < lineItems.size(); i++) {
+      li = lineItems.get(i);
+      if (li.contains(item)) return i;
+    }
+    return -1;
   }
 
   public void addItem(Sellable item) {
@@ -80,7 +93,9 @@ public class ShoppingBasket {
     // Apply any shopping basket specific discounts now
     totalPrice = discount.applyDiscount(total);
     // Customer discount applied last
-    if (customer != null) totalPrice = customer.applyDiscount(totalPrice);
+    if (customer != null) {
+      totalPrice = customer.applyDiscount(totalPrice);
+    }
   }
 
   public double getPrice() {

@@ -12,6 +12,6 @@ public class TestLoyaltyCard {
 
   @Test
   public void testDiscount(){
-    assertEquals(3.0, card.applyDiscount(100.0), 0.001);
+    assertEquals(97.0, card.applyDiscount(100.0), 0.001);
   }
 }

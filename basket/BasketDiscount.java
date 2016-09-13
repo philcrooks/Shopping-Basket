@@ -23,7 +23,7 @@ public class BasketDiscount implements Discountable {
 
   public double applyDiscount (double amount) {
     if (amount > discountThreshold)
-      return amount - ((amount * discount) / 100);
+      return amount - ((amount * discount) / 100.0);
     return amount;
   }
 }
