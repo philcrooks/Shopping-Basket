@@ -28,6 +28,11 @@ public class TestShoppingBasket {
   }
 
   @Test
+  public void testLoyaltyCard() {
+    assertEquals(26.46, customer.applyDiscount(27.0), 0.001);
+  }
+
+  @Test
   public void testEmptyBasket() {
     assertEquals(0.0, basket.getPrice(), 0.001);
   }

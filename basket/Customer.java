@@ -16,6 +16,8 @@ public class Customer implements Discountable {
   private Customer(Customer another) {
     this.id = another.id;
     this.name = another.name;
+    this.loyaltyCard = null;
+    if (another.loyaltyCard != null) this.loyaltyCard = another.loyaltyCard.duplicate();
   }
 
   public Customer duplicate() {

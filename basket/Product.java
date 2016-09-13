@@ -19,8 +19,8 @@ public class Product implements Sellable {
     this.id = another.id;
     this.name = another.name;
     this.price = another.price;
-    this.offer = another.offer;
-    if (another.offer != null) this.offer = this.offer.duplicate();
+    this.offer = null;
+    if (another.offer != null) this.offer = another.offer.duplicate();
   }
 
   public Product duplicate() {
