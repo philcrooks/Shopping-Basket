@@ -13,7 +13,7 @@ public class Customer implements Discountable {
   }
 
   public void addCard(LoyaltyCard card) {
-    loyaltyCard = card;
+    loyaltyCard = card.duplicate();
   }
 
   public double getDiscount () {

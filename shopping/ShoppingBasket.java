@@ -29,7 +29,7 @@ public class ShoppingBasket {
   public void totalize() {
     double total = 0.0;
     for (LineItem item : lineItems) {
-      total += item.cost();
+      total += item.getPrice();
     }
     totalCost = total;
   }

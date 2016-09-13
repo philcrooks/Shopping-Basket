@@ -16,41 +16,41 @@ public class TestProductOffer {
 
   @Test
   public void testPerItemOffer(){
-    assertEquals(45.00, perItem.costOf(5, 10.0), 0.001);
+    assertEquals(45.00, perItem.priceOf(5, 10.0), 0.001);
   }
 
   @Test
   public void testBogof_OneItem(){
-    assertEquals(5.0, bogof.costOf(1, 5.00), 0.001);
+    assertEquals(5.0, bogof.priceOf(1, 5.00), 0.001);
   }
 
   @Test
   public void testBogof_EvenNumber(){
-    assertEquals(10.0, bogof.costOf(4, 5.00), 0.001);
+    assertEquals(10.0, bogof.priceOf(4, 5.00), 0.001);
   }
 
   @Test
   public void testBogof_OddNumber(){
-    assertEquals(15.0, bogof.costOf(5, 5.00), 0.001);
+    assertEquals(15.0, bogof.priceOf(5, 5.00), 0.001);
   }
 
   @Test
   public void testB2gof_OneItem(){
-    assertEquals(5.0, buyTwoGetOneFree.costOf(1, 5.00), 0.001);
+    assertEquals(5.0, buyTwoGetOneFree.priceOf(1, 5.00), 0.001);
   }
 
   @Test
   public void testB2gof_TwoItems(){
-    assertEquals(10.0, buyTwoGetOneFree.costOf(2, 5.00), 0.001);
+    assertEquals(10.0, buyTwoGetOneFree.priceOf(2, 5.00), 0.001);
   }
 
   @Test
   public void testB2gof_ThreeItems(){
-    assertEquals(10.0, buyTwoGetOneFree.costOf(3, 5.00), 0.001);
+    assertEquals(10.0, buyTwoGetOneFree.priceOf(3, 5.00), 0.001);
   }
 
   @Test
   public void testB2gof_FourItems(){
-    assertEquals(15.0, buyTwoGetOneFree.costOf(4, 5.00), 0.001);
+    assertEquals(15.0, buyTwoGetOneFree.priceOf(4, 5.00), 0.001);
   }
 }

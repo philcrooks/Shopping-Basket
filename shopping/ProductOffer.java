@@ -13,7 +13,17 @@ public class ProductOffer {
     this.discount = discount;
   }
 
-  public double costOf(int noItems, double priceEach) {
+  private ProductOffer(ProductOffer another) {
+    this.id = another.id;
+    this.noItems = another.noItems;
+    this.discount = another.discount;
+  }
+
+  public ProductOffer duplicate() {
+    return new ProductOffer(this);
+  }
+
+  public double priceOf(int noItems, double priceEach) {
     int discountApplyNumber = (noItems/this.noItems) * this.noItems;
     int discountDoesNotApplyNumber = noItems - discountApplyNumber;
     double cost = (discountApplyNumber * priceEach);

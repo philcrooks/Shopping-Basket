@@ -11,6 +11,15 @@ public class LoyaltyCard implements Discountable {
     this.discount = discount;
   }
 
+  private LoyaltyCard(LoyaltyCard another) {
+    this.id = another.id;
+    this.discount = another.discount;
+  }
+
+  public LoyaltyCard duplicate() {
+    return new LoyaltyCard(this);
+  }
+
   public double getDiscount () {
     return discount;
   }

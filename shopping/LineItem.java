@@ -1,16 +1,44 @@
 package shopping;
 
+import behaviours.*;
+
 public class LineItem {
-  private Product product;
+  private Sellable item;
   private int numberOf;
-  private float cost;
+  private double linePrice;
 
-  public LineItem(Product product, int numberOf) {
-
+  public LineItem(Sellable item) {
+    this.item = item.duplicate();
+    numberOf = 1;
+    linePrice = this.item.priceOf(numberOf);
   }
 
-  public double cost() {
-    return 0.0;
+  public boolean contains(Sellable item) {
+    return (this.item.getId() == item.getId());
+  }
 
+  public void addItem() {
+    numberOf += 1;
+    linePrice = item.priceOf(numberOf);
+  }
+
+  public void removeItem() {
+    numberOf -= 1;
+    if (numberOf < 0) numberOf = 0;
+    linePrice = item.priceOf(numberOf);
+  }
+
+  public void removeAllItems() {
+    numberOf = 0;
+    linePrice = 0.0;
+  }
+
+  public void setNumberOfItems(int noItems) {
+    if (noItems >= 0) numberOf = noItems;
+    linePrice = item.priceOf(numberOf);
+  }
+
+  public double getPrice() {
+    return linePrice;
   }
 }
