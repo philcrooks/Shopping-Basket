@@ -17,13 +17,13 @@ _Evidence of using a statically typed programming language and solid coding tech
 
 There are seven classes in my solution as follows:
 
-1. LoyaltyCard: Supports the Discountable interface allowing it to calculate a revised total for the Customer.
-2. Customer: May or may not have a loyalty card but supports the Discountable interface for use by ShoppingBasket.
-3. ProductOffer: Calculates the price of a number of items of the same kind. Bogof and other types of offer can easily be supported.
-4. Product: May or may not have an associated ProductOffer. Delegates calculation of price to ProductOffer if it exists.
-5. BasketDiscount: Provided to ShoppingBasket at instantiation. May do nothing but it must exist. It is asked to discount the basket total when ShoppingBasket.getPrice() is called. 
-6. LineItem: The ShoppingBasket comprises a number of LineItems. Each LineItem contains one Product and no two LineItems should contain the same Product. A LineItem wraps a Product up with a 'number of' and total price.
-7. ShoppingBasket: A container for an array of LineItems with the methods required to manipulate them.
+1. **LoyaltyCard**: Supports the Discountable interface allowing it to calculate a revised total for the Customer.
+2. **Customer**: May or may not have a loyalty card but supports the Discountable interface for use by ShoppingBasket.
+3. **ProductOffer**: Calculates the price of a number of items of the same kind. Bogof and other types of offer can easily be supported.
+4. **Product**: May or may not have an associated ProductOffer. Delegates calculation of price to ProductOffer if it exists.
+5. **BasketDiscount**: Provided to ShoppingBasket at instantiation. May do nothing but it must exist. It is asked to discount the basket total when ShoppingBasket.getPrice() is called. 
+6. **LineItem**: The ShoppingBasket comprises a number of LineItems. Each LineItem contains one Product and no two LineItems should contain the same Product. A LineItem wraps a Product up with a 'number of' and total price.
+7. **ShoppingBasket**: A container for an array of LineItems with the methods required to manipulate them.
 
 Points to note:
 + Its is assumed that some objects will originate from a database. Those objects have an 'id' field which is assumed to be unique amoungst the instances of the class (LineItem uses the Product id to identify different products).
