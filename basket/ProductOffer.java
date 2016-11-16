@@ -1,7 +1,5 @@
 package basket;
 
-import behaviours.*;
-
 public class ProductOffer {
   private int id;
   private int noItems;
